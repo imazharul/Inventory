@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSupplierTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('supplier', function (Blueprint $table) {
+            $table->bigIncrements('supplier_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('shop');
+            $table->string('type');
+            $table->string('bankname')->nullable();
+            $table->string('bankbranch')->nullable();
+            $table->string('bankholder')->nullable();
+            $table->string('banknumber')->nullable();
+            $table->string('city');
+            $table->string('address');
+            $table->string('photo');
+            $table->integer('status');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('supplier');
+    }
+}
